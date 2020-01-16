@@ -1,6 +1,6 @@
 {
   "name": "@expresso/tracing",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "@expresso tracing tools",
   "main": "dist/index.js",
   "scripts": {
@@ -14,7 +14,13 @@
   },
   "author": "Rogério Munhoz <roz@rjmunhoz.me>",
   "license": "GPL-3.0",
-  "keywords": ["jaeger", "tracing", "express", "expresso", "distributed tracing"],
+  "keywords": [
+    "jaeger",
+    "tracing",
+    "express",
+    "expresso",
+    "distributed tracing"
+  ],
   "devDependencies": {
     "@types/mocha": "^5.2.7",
     "@types/node": "^12.12.20",
