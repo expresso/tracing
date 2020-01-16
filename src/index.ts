@@ -2,6 +2,7 @@ import mung from 'express-mung'
 import { Request, Response } from 'express'
 import { Span, Tracer } from '@opentelemetry/types'
 import * as opentelemetry from '@opentelemetry/core'
+export * from './types'
 
 export type TracingHookFunction = (responseBody: any, req: Request, res: Response, span: Span, tracer: Tracer) => void
 
