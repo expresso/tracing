@@ -10,7 +10,7 @@ Distributed tracing toolset for expresso. Traces requests using Jaeger.
     - [Tracer](#tracer)
       - [Initialization](#initialization)
     - [Middleware](#middleware)
-      - [Usage:](#usage)
+      - [Usage](#usage)
       - [Hooks](#hooks)
   - [Configuration Object](#configuration-object)
   - [Adding additional data to spans](#adding-additional-data-to-spans)
@@ -18,7 +18,7 @@ Distributed tracing toolset for expresso. Traces requests using Jaeger.
 ## How this works
 
 The tracer file will hook in `require('http')` to auto-instrument
-every request that's either coming in or out of the service. This is done by [@opentelemetry/node](https://www.npmjs.com/package/@opentelemetry/node) and [@opentelemetry/plugin-http](https://www.npmjs.com/package/@opentelemetry/plugin-http).
+every request that is either coming in or going out of the service. This is done by [@opentelemetry/node](https://www.npmjs.com/package/@opentelemetry/node) and [@opentelemetry/plugin-http](https://www.npmjs.com/package/@opentelemetry/plugin-http).
 
 Meanwhile, the middleware will add some extra info to the traced
 requests (request/response body, headers and query). This is done using [express-mung](https://www.npmjs.com/package/express-mung)
@@ -33,13 +33,10 @@ Installing:
 
 The tracer module is responsible for adding the required headers to all outgoing requests, plus reading headers from and logging incoming requests.
 
-To know more about the config object, see [Configuration Object](#configuration-object)
-
 > **IMPORTANT:** This should be intialized on the entrypoint of your application,
 > before you require `@expresso/app` or any other module that `require`s node's native `http` module.
 >
-> **Modules required before the tracer is initialized will *not* be instrumented**
-
+> **Modules required before the initializing the tracer will *not* be instrumented**
 
 #### Initialization
 
@@ -56,12 +53,14 @@ const tracerConfig: IExpressoTracerConfig = {
 tracer.init(config)
 ```
 
+To know more about the config object, see [Configuration Object](#configuration-object)
+
 ### Middleware
 
 The middleware is used to gather some more information from the request and response objects (body, headers and query)
 and add it to the jaeger span. This will also add a `Jaeger-Trace-Id` header to all of your responses.
 
-#### Usage:
+#### Usage
 
 ```typescript
 import expresso from '@expresso/app'
