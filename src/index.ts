@@ -39,7 +39,7 @@ export function factory ({ before, after }: Partial<HooksObject> = {}) {
     })
 
     if (after) after(body, req, res, span, tracer)
-  })
+  }, { mungError: true })
 }
 
 export default { factory }
