@@ -11,7 +11,7 @@ export type HooksObject = {
   after: TracingHookFunction
 }
 
-export function factory ({ before, after }: Partial<HooksObject>) {
+export function factory ({ before, after }: Partial<HooksObject> = {}) {
   return mung.json((body: any, req: Request, res: Response) => {
     const tracer = opentelemetry.getTracer()
     const span = tracer.getCurrentSpan()
