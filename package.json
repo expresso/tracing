@@ -1,6 +1,6 @@
 {
   "name": "@expresso/tracing",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "@expresso tracing tools",
   "main": "dist/index.js",
   "scripts": {
